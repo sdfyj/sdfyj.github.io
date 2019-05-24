@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on fyj</title>
-    <link>https://sdfyj.github.io/post/</link>
-    <description>Recent content in Posts on fyj</description>
+    <title>Posts on fanyingjie</title>
+    <link>www.fanyingjie.com/post/</link>
+    <description>Recent content in Posts on fanyingjie</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 10 May 2019 14:49:44 +0800</lastBuildDate>
+    <copyright>Everything is mine</copyright>
+    <lastBuildDate>Wed, 15 May 2019 10:57:34 +0800</lastBuildDate>
     
-	<atom:link href="https://sdfyj.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="www.fanyingjie.com/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>First</title>
-      <link>https://sdfyj.github.io/post/first/</link>
-      <pubDate>Fri, 10 May 2019 14:49:44 +0800</pubDate>
+      <link>www.fanyingjie.com/post/first/</link>
+      <pubDate>Wed, 15 May 2019 10:57:34 +0800</pubDate>
       
-      <guid>https://sdfyj.github.io/post/first/</guid>
-      <description> Hello World  good perfect  </description>
+      <guid>www.fanyingjie.com/post/first/</guid>
+      <description>Hello world 1.test 2.perfect 3.conclusion</description>
     </item>
     
   </channel>

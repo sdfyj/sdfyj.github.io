@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>统计知识 on fyj</title>
+    <link>https://sdfyj.github.io/categories/%E7%BB%9F%E8%AE%A1%E7%9F%A5%E8%AF%86/</link>
+    <description>Recent content in 统计知识 on fyj</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 22 May 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://sdfyj.github.io/categories/%E7%BB%9F%E8%AE%A1%E7%9F%A5%E8%AF%86/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>向量自回归模型</title>
+      <link>https://sdfyj.github.io/cn/2019/05/var/</link>
+      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://sdfyj.github.io/cn/2019/05/var/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

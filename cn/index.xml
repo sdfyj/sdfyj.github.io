@@ -6,18 +6,99 @@
     <description>Recent content in 中文 on fyj</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 21 May 2019 18:01:30 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 24 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://sdfyj.github.io/cn/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Cn First</title>
-      <link>https://sdfyj.github.io/cn/2019/05/cn-first/</link>
+      <title>学习apache</title>
+      <link>https://sdfyj.github.io/cn/2019/05/apache/</link>
+      <pubDate>Fri, 24 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://sdfyj.github.io/cn/2019/05/apache/</guid>
+      <description>安装Apache服务器 安装 yum -y install httpd 启动apache服务器 systemctl start httpd 设置开机自动启动 systemctl enable httpd 关闭apache服务器 systemctl stop httpd 网页存放目录为/var/ww</description>
+    </item>
+    
+    <item>
+      <title>学习centos</title>
+      <link>https://sdfyj.github.io/cn/2019/05/centos/</link>
+      <pubDate>Fri, 24 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://sdfyj.github.io/cn/2019/05/centos/</guid>
+      <description>添加系统环境变量 第一步：查看当前系统的环境变量有哪些 echo $PATH 第二步：找到当前系统中以bin、sbin结尾的目录 find / -type d -name *bin 第三步：编辑/etc/</description>
+    </item>
+    
+    <item>
+      <title>学习git</title>
+      <link>https://sdfyj.github.io/cn/2019/05/git/</link>
+      <pubDate>Fri, 24 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://sdfyj.github.io/cn/2019/05/git/</guid>
+      <description>git(github地址) 镜像下载 安装git centos安装 yum install git 安装完成后查看版本 git --version 查看yum源仓库git信息 yum info git 如果原有的git版本</description>
+    </item>
+    
+    <item>
+      <title>学习markdown</title>
+      <link>https://sdfyj.github.io/cn/2019/05/markdown/</link>
+      <pubDate>Fri, 24 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://sdfyj.github.io/cn/2019/05/markdown/</guid>
+      <description>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。 Markdown 语言在2004由约翰·格鲁伯（英语：John Gruber）创建。 Markdown 编写</description>
+    </item>
+    
+    <item>
+      <title>学习hugo</title>
+      <link>https://sdfyj.github.io/cn/2019/05/hugo/</link>
+      <pubDate>Thu, 23 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://sdfyj.github.io/cn/2019/05/hugo/</guid>
+      <description>hugo的官方学习网站 中文官网 英文官网 安装 mac下直接使用Homebrew安装 brew install hugo 生成站点 使用Hugo快速生成站点，比如希望生成到 /path/to/site 路径：</description>
+    </item>
+    
+    <item>
+      <title>点沙成金：半导体芯片</title>
+      <link>https://sdfyj.github.io/cn/2019/05/semiconductor/</link>
+      <pubDate>Wed, 22 May 2019 10:37:27 +0800</pubDate>
+      
+      <guid>https://sdfyj.github.io/cn/2019/05/semiconductor/</guid>
+      <description>文章《点沙成金：半导体芯片》来自公众号老和山下的小学僧，讲解了芯片是如何制成的，中国与国外的差距。</description>
+    </item>
+    
+    <item>
+      <title>书单</title>
+      <link>https://sdfyj.github.io/cn/2019/05/booklist/</link>
+      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://sdfyj.github.io/cn/2019/05/booklist/</guid>
+      <description>经济 书名 作者 评价 中国经济2018 王德培 下一个倒下的会不会是华为 田涛 吴春波 腾讯传（1998-2016） 吴晓波 科幻 书名 作者 评价 三体 刘慈欣 流浪地球</description>
+    </item>
+    
+    <item>
+      <title>向量自回归模型</title>
+      <link>https://sdfyj.github.io/cn/2019/05/var/</link>
+      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://sdfyj.github.io/cn/2019/05/var/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>酒后吃头孢有多恐怖？！医生凌锋生死24小时</title>
+      <link>https://sdfyj.github.io/cn/2019/05/doctor/</link>
+      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://sdfyj.github.io/cn/2019/05/doctor/</guid>
+      <description>文章《酒后吃头孢有多恐怖？！医生凌锋生死24小时》来自公众号医学界，讲解了喝酒前或喝酒后吃头孢有多么严重的后果。</description>
+    </item>
+    
+    <item>
+      <title>学习python</title>
+      <link>https://sdfyj.github.io/cn/2019/05/python/</link>
       <pubDate>Tue, 21 May 2019 18:01:30 +0800</pubDate>
       
-      <guid>https://sdfyj.github.io/cn/2019/05/cn-first/</guid>
-      <description></description>
+      <guid>https://sdfyj.github.io/cn/2019/05/python/</guid>
+      <description>centos安装python3.6环境 安装EPEL和IUS软件源 yum install epel-release -y yum install https://centos7.iuscommunity.org/ius-release.rpm -y 安装Python3.6 yum install python36u -y 创建python3连接符 ln -s /bin/python3.6</description>
     </item>
     
   </channel>

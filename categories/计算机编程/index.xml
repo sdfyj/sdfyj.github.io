@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>计算机编程 on fyj</title>
+    <link>https://sdfyj.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BC%96%E7%A8%8B/</link>
+    <description>Recent content in 计算机编程 on fyj</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 24 May 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://sdfyj.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>学习apache</title>
+      <link>https://sdfyj.github.io/cn/2019/05/apache/</link>
+      <pubDate>Fri, 24 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://sdfyj.github.io/cn/2019/05/apache/</guid>
+      <description>安装Apache服务器 安装 yum -y install httpd 启动apache服务器 systemctl start httpd 设置开机自动启动 systemctl enable httpd 关闭apache服务器 systemctl stop httpd 网页存放目录为/var/ww</description>
+    </item>
+    
+    <item>
+      <title>学习centos</title>
+      <link>https://sdfyj.github.io/cn/2019/05/centos/</link>
+      <pubDate>Fri, 24 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://sdfyj.github.io/cn/2019/05/centos/</guid>
+      <description>添加系统环境变量 第一步：查看当前系统的环境变量有哪些 echo $PATH 第二步：找到当前系统中以bin、sbin结尾的目录 find / -type d -name *bin 第三步：编辑/etc/</description>
+    </item>
+    
+    <item>
+      <title>学习git</title>
+      <link>https://sdfyj.github.io/cn/2019/05/git/</link>
+      <pubDate>Fri, 24 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://sdfyj.github.io/cn/2019/05/git/</guid>
+      <description>git(github地址) 镜像下载 安装git centos安装 yum install git 安装完成后查看版本 git --version 查看yum源仓库git信息 yum info git 如果原有的git版本</description>
+    </item>
+    
+    <item>
+      <title>学习markdown</title>
+      <link>https://sdfyj.github.io/cn/2019/05/markdown/</link>
+      <pubDate>Fri, 24 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://sdfyj.github.io/cn/2019/05/markdown/</guid>
+      <description>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。 Markdown 语言在2004由约翰·格鲁伯（英语：John Gruber）创建。 Markdown 编写</description>
+    </item>
+    
+    <item>
+      <title>学习hugo</title>
+      <link>https://sdfyj.github.io/cn/2019/05/hugo/</link>
+      <pubDate>Thu, 23 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://sdfyj.github.io/cn/2019/05/hugo/</guid>
+      <description>hugo的官方学习网站 中文官网 英文官网 安装 mac下直接使用Homebrew安装 brew install hugo 生成站点 使用Hugo快速生成站点，比如希望生成到 /path/to/site 路径：</description>
+    </item>
+    
+    <item>
+      <title>学习python</title>
+      <link>https://sdfyj.github.io/cn/2019/05/python/</link>
+      <pubDate>Tue, 21 May 2019 18:01:30 +0800</pubDate>
+      
+      <guid>https://sdfyj.github.io/cn/2019/05/python/</guid>
+      <description>centos安装python3.6环境 安装EPEL和IUS软件源 yum install epel-release -y yum install https://centos7.iuscommunity.org/ius-release.rpm -y 安装Python3.6 yum install python36u -y 创建python3连接符 ln -s /bin/python3.6</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>书单 on fyj</title>
+    <link>https://sdfyj.github.io/tags/%E4%B9%A6%E5%8D%95/</link>
+    <description>Recent content in 书单 on fyj</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 22 May 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://sdfyj.github.io/tags/%E4%B9%A6%E5%8D%95/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>书单</title>
+      <link>https://sdfyj.github.io/cn/2019/05/booklist/</link>
+      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://sdfyj.github.io/cn/2019/05/booklist/</guid>
+      <description>经济 书名 作者 评价 中国经济2018 王德培 下一个倒下的会不会是华为 田涛 吴春波 腾讯传（1998-2016） 吴晓波 科幻 书名 作者 评价 三体 刘慈欣 流浪地球</description>
+    </item>
+    
+  </channel>
+</rss>

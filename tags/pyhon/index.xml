@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pyhon on fyj</title>
+    <link>https://sdfyj.github.io/tags/pyhon/</link>
+    <description>Recent content in pyhon on fyj</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 21 May 2019 18:01:30 +0800</lastBuildDate>
+    
+	<atom:link href="https://sdfyj.github.io/tags/pyhon/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>学习python</title>
+      <link>https://sdfyj.github.io/cn/2019/05/python/</link>
+      <pubDate>Tue, 21 May 2019 18:01:30 +0800</pubDate>
+      
+      <guid>https://sdfyj.github.io/cn/2019/05/python/</guid>
+      <description>centos安装python3.6环境 安装EPEL和IUS软件源 yum install epel-release -y yum install https://centos7.iuscommunity.org/ius-release.rpm -y 安装Python3.6 yum install python36u -y 创建python3连接符 ln -s /bin/python3.6</description>
+    </item>
+    
+  </channel>
+</rss>

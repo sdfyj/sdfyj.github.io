@@ -1,15 +1,831 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>hp on fyj</title>
+    <title>homepage on fyj</title>
     <link>https://sdfyj.github.io/</link>
-    <description>Recent content in hp on fyj</description>
+    <description>Recent content in homepage on fyj</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 21 May 2019 18:08:03 +0800</lastBuildDate>
+    <atom:link href="https://sdfyj.github.io/" rel="self" type="application/rss+xml" />
     
-	<atom:link href="https://sdfyj.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>学习apache</title>
+      <link>https://sdfyj.github.io/cn/2019/05/apache/</link>
+      <pubDate>Fri, 24 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://sdfyj.github.io/cn/2019/05/apache/</guid>
+      <description>
+        
+
+&lt;h3 id=&#34;安装apache服务器&#34;&gt;安装Apache服务器&lt;/h3&gt;
+
+&lt;p&gt;安装&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;yum -y install httpd
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;启动apache服务器&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;systemctl start httpd
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;设置开机自动启动&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;systemctl enable httpd
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;关闭apache服务器&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;systemctl stop httpd
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;网页存放目录为&lt;code&gt;/var/www/html/&lt;/code&gt;,阿里云服务器要安全组开放80端口才能使用公网IP进行访问，&lt;/p&gt;
+
+        
+      </description>
+    </item>
     
+    <item>
+      <title>学习centos</title>
+      <link>https://sdfyj.github.io/cn/2019/05/centos/</link>
+      <pubDate>Fri, 24 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://sdfyj.github.io/cn/2019/05/centos/</guid>
+      <description>
+        
+
+&lt;h3 id=&#34;添加系统环境变量&#34;&gt;添加系统环境变量&lt;/h3&gt;
+
+&lt;p&gt;第一步：查看当前系统的环境变量有哪些&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;echo $PATH
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;第二步：找到当前系统中以bin、sbin结尾的目录&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;find / -type d -name *bin
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;第三步：编辑/etc/profile文件，查看第二步中找到的你所需要的目录&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#vim编辑系统环境变量文件
+vim /etc/profile
+#vim打开该文件后按Shift+g键跳转至该文件的最后一行，按i键进入插入编辑模式
+#输入所缺失的bin目录，多个目录以:分割即可
+export PATH=/usr/local/mysql/bin:/usr/local/php/bin:$PATH
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;第四步：启用刚刚添加的新环境变量&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;source /etc/profile
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;env命令显示所有的环境变量&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;env
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;设置变量的三种方法&#34;&gt;设置变量的三种方法&lt;/h3&gt;
+
+&lt;p&gt;1 在/etc/profile文件中添加变量【对所有用户生效(永久的)】&lt;/p&gt;
+
+&lt;p&gt;用VI在文件/etc/profile文件中增加变量，该变量将会对Linux下所有用户有效，并且是“永久的”。&lt;/p&gt;
+
+&lt;p&gt;例如：编辑/etc/profile文件，添加CLASSPATH变量&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;vi /etc/profile 
+export CLASSPATH=./JAVA_HOME/lib;$JAVA_HOME/jre/lib 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;注：修改文件后要想马上生效还要运行&lt;code&gt;source /etc/profile&lt;/code&gt;不然只能在下次重进此用户时生效。&lt;/p&gt;
+
+&lt;p&gt;2 在用户目录下的.bash_profile文件中增加变量【对单一用户生效(永久的)】&lt;/p&gt;
+
+&lt;p&gt;用VI在用户目录下的.bash_profile文件中增加变量，改变量仅会对当前用户有效，并且是“永久的”。&lt;/p&gt;
+
+&lt;p&gt;例如：编辑guok用户目录(/home/guok)下的.bash_profile&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;vi /home/guok/.bash.profile 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;添加如下内容：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;export CLASSPATH=./JAVA_HOME/lib;$JAVA_HOME/jre/lib 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;注：修改文件后要想马上生效还要运行&lt;code&gt;source /home/guok/.bash_profile&lt;/code&gt;不然只能在下次重进此用户时生效。&lt;/p&gt;
+
+&lt;p&gt;3 直接运行export命令定义变量【只对当前shell(BASH)有效(临时的)】&lt;/p&gt;
+
+&lt;p&gt;在shell的命令行下直接使用[export 变量名=变量值] 定义变量，该变量只在当前的shell(BASH)或其子shell(BASH)下是有效的，shell关闭了，变量也就失效了，再打开新shell时就没有这个变量，需要使用的话还需要重新定义。&lt;/p&gt;
+
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>学习git</title>
+      <link>https://sdfyj.github.io/cn/2019/05/git/</link>
+      <pubDate>Fri, 24 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://sdfyj.github.io/cn/2019/05/git/</guid>
+      <description>
+        
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/git/git/releases&#34;&gt;git(github地址)&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&#34;https://mirrors.edge.kernel.org/pub/software/scm/git/&#34;&gt;镜像下载&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;安装git&#34;&gt;安装git&lt;/h3&gt;
+
+&lt;p&gt;centos安装&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;yum install git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;安装完成后查看版本&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git --version
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;查看yum源仓库git信息&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;yum info git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果原有的git版本过低，移除默认安装的旧版git&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;yum remove git 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;下载最新版&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cd /usr/src
+wget https://www.kernel.org/pub/software/scm/git/git-2.18.0.tar.gz
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;解压&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;tar xf git-2.18.0.tar.gz
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;配置编译安装&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cd /usr/src
+ls
+cd git-2.18.0/
+make configure
+./configure --prefix=/usr/git ##配置目录
+make profix=/usr/git
+make isntall
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;加入环境变量&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;echo &amp;quot;export PATH=$PATH:/usr/git/bin&amp;quot; &amp;gt;&amp;gt; /etc/profile
+source /etc/profile
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;设置全局变量&#34;&gt;设置全局变量&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;#全局变量用户名
+git config –global user.name “xxx” 
+#全局变量用户邮箱
+git config –global user.email “xxx@xxx.com” 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;生成ssh密钥&#34;&gt;生成SSH密钥&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;#生成密钥
+ssh-keygen -t rsa -C “your email address”
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;连续按3个回车（密码默认为空），得到&lt;code&gt;id_rsa&lt;/code&gt;和&lt;code&gt;id_rsa.pub&lt;/code&gt;文件，在&lt;code&gt;/root/.ssh&lt;/code&gt;下说明生成成功&lt;/p&gt;
+
+&lt;h3 id=&#34;添加密钥到github&#34;&gt;添加密钥到Github&lt;/h3&gt;
+
+&lt;p&gt;打开 Github，登录自己的账号后，点击自己的头像-&amp;gt;settings-&amp;gt;SSH And GPG Keys-&amp;gt;New SSH key
+将 &lt;code&gt;id_rsa.pub&lt;/code&gt;中的内容（&lt;code&gt;$ cat ~/.ssh/id_rsa.pub #此命令可查看key内容&lt;/code&gt;）粘贴到&lt;code&gt;Key&lt;/code&gt;文本框中，随意输入一个title(不要有中文)，点击 &lt;code&gt;Add Key&lt;/code&gt;即可&lt;/p&gt;
+
+&lt;h3 id=&#34;测试是否连接成功&#34;&gt;测试是否连接成功&lt;/h3&gt;
+
+&lt;p&gt;在命令行中输入&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ssh git@github.com
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;会出现如下询问：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Are you sure you want to continue connecting (yes/no)?
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;键入yes后回车，如果出现&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Hi xxx! You’ve successfully authenticated, but GitHub does not provide shell accessConnection to github.com closed.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;则说明验证成功，否则可能是上述步骤中的其中几步出错了，需重新来过。&lt;/p&gt;
+
+&lt;h3 id=&#34;常用命令&#34;&gt;常用命令&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;#复制代码库到本地
+git clone &amp;lt;address&amp;gt; 
+#添加文件到代码库中
+git add &amp;lt;file&amp;gt; 
+#删除代码库的文件
+git rm &amp;lt;file&amp;gt;
+#提交更改，在修改了文件以后，使用这个命令提交修改
+git commit -m &amp;lt;message&amp;gt;
+#从远程同步代码库到本地
+git pull
+#推送代码到远程代码库
+git push
+#查看当前分支。带*是当前分支
+git branch
+#新建一个分支
+git branch &amp;lt;branch-name&amp;gt;
+#删除一个分支
+git branch -d &amp;lt;branch-name&amp;gt;
+#切换到指定分支
+git checkout &amp;lt;branch-name&amp;gt;
+#查看提交记录（即历史的 commit 记录）
+git log
+#当前修改的状态，是否修改了还没提交，或者那些文件未使用
+git status
+#恢复到历史版本
+git reset &amp;lt;log&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;git实例&#34;&gt;git实例&lt;/h3&gt;
+
+&lt;p&gt;远程仓库&lt;code&gt;README.git&lt;/code&gt;为空，把本地代码上传到远程仓库&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;echo &amp;quot;# Test&amp;quot; &amp;gt;&amp;gt; README.md
+git init
+git add README.md
+git commit -m &amp;quot;first commit&amp;quot;
+git remote add origin git@github.com:******/README.git
+git push -u origin master
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;更新本地代码到远程仓库&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git add README.md
+git commit -m &amp;quot;first commit&amp;quot;
+git push -u origin master
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;获取远程仓库中的代码到本地&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone git@github.com:*****/README.git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;从远程仓库同步代码更新本地代码&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git pull origin master
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;如何设置两个git账户-gitlab-github&#34;&gt;如何设置两个git账户，gitlab+github&lt;/h3&gt;
+
+&lt;p&gt;比如gitlab用多可以将gitlab配置为global全局变量，github配置为local变量&lt;/p&gt;
+
+&lt;p&gt;global：全局配置（用户名和邮箱）&lt;/p&gt;
+
+&lt;p&gt;local：当前项目的配置（用户名和邮箱），如果你没有配置，提交代码时候个人信息是global配置的信息。需要注意的是配置local的时候，需要cd指令打开具体项目文件夹，再去配置local&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//查看全局配置(global)
+git config --global --list
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;//查看当前项目的配置（local）
+git config --local --list
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;通过https方式，不需要生成SSH秘钥，提交时在提示框内输入用户名和密码即可，SSH方式必须有SSH秘钥。&lt;/p&gt;
+
+&lt;p&gt;首先分别生成gitlab和github网站的密钥文件，一共两对四个，公钥和私钥。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;-t 密钥类型，默认是 rsa加密&lt;/li&gt;
+&lt;li&gt;-C 注释文字，比如用户邮箱&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;-f 密钥文件位置及文件名&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//gitlab密钥
+$ ssh-keygen -t rsa -C &amp;quot;xxx@gmail&amp;quot;
+//github密钥
+$ ssh-keygen -t rsa -C &amp;quot;xxx@qq.com&amp;quot; -f ~/.ssh/github_id-rsa
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;将生成的公钥（.pub文件）粘贴到github/gitlab的SSH地址里面&lt;/p&gt;
+
+&lt;p&gt;配置文件config，其中gitlab地址，一般都是自己公司目所在的ip地址或者公司git网址，如果没有config，则生成一个&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//生成config 
+ssh touch ~/.ssh/config
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;用&lt;code&gt;vim config&lt;/code&gt;打开，编辑&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#github
+Host github.com
+HostName github.com
+User git
+IdentityFile ~/.ssh/github_id-rsa
+
+#gitlab
+Host git.v87.us
+HostName git.v87.us
+User git
+IdentityFile ~/.ssh/id_rsa
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;按esc退出，:wq保存&lt;/p&gt;
+
+&lt;p&gt;测试时，不是&lt;code&gt;git -T git@具体地址&lt;/code&gt;，而是&lt;code&gt;git -T git@Host的值&lt;/code&gt; ，也就是config里面具体的Host，因为有配置文件config，最后会指向具体的密钥。&lt;/p&gt;
+
+&lt;p&gt;修改已经设置过的global配置&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git config --global --replace-all user.email &amp;quot;输入你的邮箱&amp;quot; 
+git config --global --replace-all user.name &amp;quot;输入你的用户名&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>学习markdown</title>
+      <link>https://sdfyj.github.io/cn/2019/05/markdown/</link>
+      <pubDate>Fri, 24 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://sdfyj.github.io/cn/2019/05/markdown/</guid>
+      <description>
+        &lt;p&gt;Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。&lt;/p&gt;
+
+&lt;p&gt;Markdown 语言在2004由约翰·格鲁伯（英语：John Gruber）创建。&lt;/p&gt;
+
+&lt;p&gt;Markdown 编写的文档可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。&lt;/p&gt;
+
+&lt;p&gt;Markdown 编写的文档后缀为 .md, .markdown。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.runoob.com/markdown/md-tutorial.html&#34;&gt;runoob.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$z = x + y$&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$a_{12}$&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$$\begin{bmatrix}
+{a_{11}}&amp;amp;{a_{12}}&amp;amp;{\cdots}&amp;amp;{a_{1n}}\\
+{a_{21}}&amp;amp;{a_{22}}&amp;amp;{\cdots}&amp;amp;{a_{2n}}\\
+{\vdots}&amp;amp;{\vdots}&amp;amp;{\ddots}&amp;amp;{\vdots}\\
+{a_{m1}}&amp;amp;{a_{m2}}&amp;amp;{\cdots}&amp;amp;{a_{mn}}\\
+\end{bmatrix}$$&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;$$
+\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix} 
+\mathbf{i} &amp;amp; \mathbf{j} &amp;amp; \mathbf{k} \\
+\frac{\partial X}{\partial u} &amp;amp;  \frac{\partial Y}{\partial u} &amp;amp; 0 \\
+\frac{\partial X}{\partial v} &amp;amp;  \frac{\partial Y}{\partial v} &amp;amp; 0 \\
+\end{vmatrix}
+$$&lt;/code&gt;&lt;/p&gt;
+
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>学习hugo</title>
+      <link>https://sdfyj.github.io/cn/2019/05/hugo/</link>
+      <pubDate>Thu, 23 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://sdfyj.github.io/cn/2019/05/hugo/</guid>
+      <description>
+        
+
+&lt;h3 id=&#34;hugo的官方学习网站&#34;&gt;hugo的官方学习网站&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.gohugo.org/&#34;&gt;中文官网&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://gohugo.io/&#34;&gt;英文官网&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;安装&#34;&gt;安装&lt;/h3&gt;
+
+&lt;p&gt;mac下直接使用&lt;code&gt;Homebrew&lt;/code&gt;安装&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;brew install hugo
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;生成站点&#34;&gt;生成站点&lt;/h3&gt;
+
+&lt;p&gt;使用Hugo快速生成站点，比如希望生成到 &lt;code&gt;/path/to/site&lt;/code&gt; 路径：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ hugo new site /path/to/site
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这样就在 &lt;code&gt;/path/to/site&lt;/code&gt; 目录里生成了初始站点，进去目录：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cd /path/to/site
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;站点目录结构：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  ▸ archetypes/
+  ▸ content/
+  ▸ layouts/
+  ▸ static/
+    config.toml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;创建文章&#34;&gt;创建文章&lt;/h3&gt;
+
+&lt;p&gt;创建一个 &lt;code&gt;about&lt;/code&gt; 页面：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ hugo new about.md
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;about.md&lt;/code&gt; 自动生成到了 &lt;code&gt;content/about.md&lt;/code&gt; ，打开 &lt;code&gt;about.md&lt;/code&gt; 看下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;+++
+date = &amp;quot;2015-10-25T08:36:54-07:00&amp;quot;
+draft = true
+title = &amp;quot;about&amp;quot;
++++
+
+正文内容
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;内容是 Markdown 格式的，+++ 之间的内容是 TOML 格式的，根据你的喜好，你可以换成 YAML 格式（使用 &amp;mdash; 标记）或者 JSON 格式。&lt;/p&gt;
+
+&lt;p&gt;创建第一篇文章，放到 &lt;code&gt;post&lt;/code&gt; 目录，方便之后生成聚合页面。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ hugo new post/first.md
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;打开编辑 &lt;code&gt;post/first.md&lt;/code&gt; ：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;---
+date: &amp;quot;2015-10-25T08:36:54-07:00&amp;quot;
+title: &amp;quot;first&amp;quot;
+---
+
+### Hello Hugo
+ 1. aaa
+ 1. bbb
+ 1. ccc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;安装主题&#34;&gt;安装主题&lt;/h3&gt;
+
+&lt;p&gt;到皮肤列表挑选一个心仪的皮肤，比如你觉得Hyde皮肤不错，找到相关的 GitHub 地址，创建目录 &lt;code&gt;themes&lt;/code&gt;，在 &lt;code&gt;themes&lt;/code&gt; 目录里把皮肤 &lt;code&gt;git clone&lt;/code&gt; 下来：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# 创建 themes 目录
+$ cd themes
+$ git clone https://github.com/spf13/hyde.git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;采用&lt;code&gt;git submodule&lt;/code&gt;模式&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git submodule add https://github.com/spf13/hyde.git themes/hyde
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;主题更新&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ git submodule init
+$ git submodule update
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;运行hugo&#34;&gt;运行Hugo&lt;/h3&gt;
+
+&lt;p&gt;在你的站点根目录执行 &lt;code&gt;Hugo&lt;/code&gt; 命令进行调试：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ hugo server --theme=hyde --buildDrafts
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;浏览器里打开： &lt;code&gt;http://localhost:1313&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;部署&#34;&gt;部署&lt;/h3&gt;
+
+&lt;p&gt;假设你需要部署在 &lt;code&gt;GitHub Pages&lt;/code&gt; 上，首先在GitHub上创建一个&lt;code&gt;Repository&lt;/code&gt;，命名为：&lt;code&gt;github用户名.github.io&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;在站点根目录执行 &lt;code&gt;Hugo&lt;/code&gt; 命令生成最终页面：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ hugo --theme=hyde --baseUrl=&amp;quot;http://github用户名.github.io/&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;（注意，以上命令并不会生成草稿页面，如果未生成任何文章，请去掉文章头部的 draft=true 再重新生成。）&lt;/p&gt;
+
+&lt;p&gt;如果一切顺利，所有静态页面都会生成到 &lt;code&gt;public&lt;/code&gt; 目录，将&lt;code&gt;pubilc&lt;/code&gt;目录里所有文件&lt;code&gt;push&lt;/code&gt;到刚创建的&lt;code&gt;Repository&lt;/code&gt;的 &lt;code&gt;master&lt;/code&gt; 分支。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cd public
+$ git init
+$ git remote add origin https://github.com/github用户名/github用户名.github.io.git
+$ git add -A
+$ git commit -m &amp;quot;first commit&amp;quot;
+$ git push -u origin master
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;浏览器里访问：&lt;code&gt;http://github用户名.github.io/&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;webhook自动部署&#34;&gt;webhook自动部署&lt;/h3&gt;
+
+&lt;p&gt;在github上建立hugo仓库，与本地hugo站点相连，当本地提交代码时，触发&lt;a href=&#34;https://developer.github.com/webhooks/&#34;&gt;webhook&lt;/a&gt;，远程服务器接受请求进行代码执行任务：将hugo仓库克隆到服务器，
+或者更新，执行hugo生成网页任务，将静态文件&lt;code&gt;public&lt;/code&gt;下内容移动到apeach的&lt;code&gt;/var/www/html&lt;/code&gt;下。&lt;/p&gt;
+
+&lt;p&gt;在服务器centos上进行&lt;a href=&#34;https://sdfyj.github.io/cn/2019/05/git/&#34;&gt;git安装&lt;/a&gt;、&lt;a href=&#34;https://sdfyj.github.io/cn/2019/05/python/&#34;&gt;python安装&lt;/a&gt;、&lt;a href=&#34;https://sdfyj.github.io/cn/2019/05/apache/&#34;&gt;apache安装&lt;/a&gt;，&lt;a href=&#34;https://github.com/sdfyj/hugo-blog-deployed&#34;&gt;服务器接受webhook请求设置&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;支持markdown格式的静态站点生成器&#34;&gt;支持markdown格式的静态站点生成器&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/jekyll/jekyll&#34;&gt;Jekyll&lt;/a&gt;由Ruby语言生成&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/hexojs/hexo&#34;&gt;Hexo&lt;/a&gt;由Nodejs生成&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/gohugoio/hugo&#34;&gt;Hugo&lt;/a&gt;由go语言编写，生成网页速度快&lt;/p&gt;
+
+&lt;h3 id=&#34;安装部署注意点&#34;&gt;安装部署注意点&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;在mac上可brew直接安装,具体见中文官网&lt;/li&gt;
+&lt;li&gt;安装主题最好用&lt;a href=&#34;https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97&#34;&gt;git submodule clone&lt;/a&gt;,
+优点是修改子模块对父项目没有影响。&lt;/li&gt;
+&lt;li&gt;相关学习git、markdown、github、js、css等。&lt;a href=&#34;https://www.runoob.com/&#34;&gt;runoob&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;发布方式：可以通过github的ph-pages发布,也可通过部署远程服务器&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;相关链接&#34;&gt;相关链接&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://mrbenwang.github.io/post/20180927-hugo-plus-github-build-blog/&#34;&gt;Hugo + github 搭建个人博客&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gdzhu8023.github.io/post/buildblog/&#34;&gt;在Github使用Hugo搭建个人博客&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cnblogs.com/sld666666/p/6031239.html&#34;&gt;利用git+hugo+markdown搭建一个静态网站(python自动部署)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.liaoxuefeng.com/wiki/896043488029600&#34;&gt;廖雪峰git教程&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.csdn.net/qq_31279347/article/details/82709101&#34;&gt;CentOS安装Git，并上传项目到github、下载项目&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.csdn.net/wugenqiang/article/details/81215396&#34;&gt;Centos7中安装Git并连接使用GitHub基本操作&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.cnblogs.com/sunlxp/p/8006979.html&#34;&gt;在centos7云服务器上搭建Apache服务器并访问到你的网站&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.jianshu.com/p/ea2c3b2827ef&#34;&gt;Hugo+Nginx利用webhook自动部署静态网站到远程CentOS服务器&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cnblogs.com/ManSenal/p/6222173.html&#34;&gt;通过git在github上建立gh-pages分支并查看网页效果&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.iimt.me/article/34&#34;&gt;从今天开始使用git系列&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.iimt.me/article/43&#34;&gt;使用github提供的webhook服务完成自动部署网站&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.coderzh.com/2015/09/13/use-webhook-automated-deploy-hugo/&#34;&gt;通过webhook将Hugo自动部署至GitHub Pages和GitCafe Pages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.zhangshengrong.com/p/yOXD58wR1B/&#34;&gt;使用GitHub和Python实现持续部署的方法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://m.bubuko.com/infodetail-3001674.html&#34;&gt;一台电脑支持2个git账号gitlab+github&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.pianshen.com/article/2161289265/&#34;&gt;git命令三种方式实现Gitlab和Github同时登录&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.jinkan.org/docs/flask/&#34;&gt;Flask&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cnblogs.com/niuli1987/p/9892480.html&#34;&gt; Centos 安装Python3.6环境&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cnblogs.com/wanliyuan/p/5673622.html&#34;&gt;如何将你的github仓库部署到github pages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cnblogs.com/huangye-dream/p/4943208.html&#34;&gt;linux(centos) 添加系统环境变量&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cnblogs.com/qianzf/p/7082940.html&#34;&gt;centos7设置、查看、删除环境变量的方法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.csdn.net/xiongzaiabc/article/details/86637773&#34;&gt;centos后台运行python程序&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://segmentfault.com/a/1190000016071010&#34;&gt;使用Github的 WebHooks 进行网站自动化部署&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.csdn.net/weixin_38233274/article/details/80279836&#34;&gt;hugo快速建站&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.colabug.com/2955320.html&#34;&gt;Hugo Universal主题使用指南&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://orianna-zzo.github.io/sci-tech/2018-01/blog%E5%85%BB%E6%88%90%E8%AE%B03-hugo%E7%9A%84%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE%E9%85%8D%E7%BD%AE/&#34;&gt;Blog养成记(3) Hugo的语法高亮配置&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.yangcs.net/posts/hugo-add-busuanzi/&#34;&gt;Hugo 添加站点统计信息&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://lyzhang.me/&#34;&gt;Nought&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.jtree.cc/&#34;&gt;jTree&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://segmentfault.com/a/1190000016078760?utm_source=tag-newest&#34;&gt;Hugo-框架学习&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://soulteary.com/&#34;&gt;苏洋博客&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://llever.com/2017/11/14/hugo-templete-%E8%AF%AD%E6%B3%95/&#34;&gt;hugo templete 语法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/dmulholl/ivy&#34;&gt;ivy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://kalid.io/&#34;&gt;kalid&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.coderzh.com/2016/03/27/hugo-pacman-theme/&#34;&gt;hugo-pacman-theme&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/yihui/yihui.name/tree/master/layouts&#34;&gt;yihuiblog&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>点沙成金：半导体芯片</title>
+      <link>https://sdfyj.github.io/cn/2019/05/semiconductor/</link>
+      <pubDate>Wed, 22 May 2019 10:37:27 +0800</pubDate>
+      
+      <guid>https://sdfyj.github.io/cn/2019/05/semiconductor/</guid>
+      <description>
+        &lt;p&gt;文章&lt;a href=&#34;https://mp.weixin.qq.com/s/JjJvzL25V7tw0zQei9V-3w&#34;&gt;《点沙成金：半导体芯片》&lt;/a&gt;来自公众号老和山下的小学僧，讲解了芯片是如何制成的，中国与国外的差距。&lt;/p&gt;
+
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>书单</title>
+      <link>https://sdfyj.github.io/cn/2019/05/booklist/</link>
+      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://sdfyj.github.io/cn/2019/05/booklist/</guid>
+      <description>
+        
+
+&lt;h1 id=&#34;经济&#34;&gt;经济&lt;/h1&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;书名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;作者&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;评价&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;中国经济2018&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;王德培&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;下一个倒下的会不会是华为&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;田涛 吴春波&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;腾讯传（1998-2016）&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;吴晓波&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&#34;科幻&#34;&gt;科幻&lt;/h1&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;书名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;作者&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;评价&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;三体&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;刘慈欣&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;流浪地球&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;刘慈欣&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&#34;历史政治&#34;&gt;历史政治&lt;/h1&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;书名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;作者&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;评价&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;邓小平时代&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;傅高义&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;邓小平传&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;理查德.伊文思(田山译)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;明朝那些事儿&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;当年明月(石悦)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&#34;哲学&#34;&gt;哲学&lt;/h1&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;书名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;作者&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;评价&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;苏菲的世界&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;乔斯坦.贾德&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&#34;计算机&#34;&gt;计算机&lt;/h1&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;书名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;作者&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;评价&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;利用python进行数据分析&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;McKinney(唐学韬译)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;python金融大数据分析&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Yves Hilpisch(姚军译)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;机器学习实践&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Peter Harrington(李锐译)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;机器学习&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;周志华&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&#34;金融统计&#34;&gt;金融统计&lt;/h1&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;书名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;作者&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;评价&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;大空头&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;刘易斯&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;债务危机&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;瑞.达利欧&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;原则&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;瑞.达利欧&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>向量自回归模型</title>
+      <link>https://sdfyj.github.io/cn/2019/05/var/</link>
+      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://sdfyj.github.io/cn/2019/05/var/</guid>
+      <description>
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>酒后吃头孢有多恐怖？！医生凌锋生死24小时</title>
+      <link>https://sdfyj.github.io/cn/2019/05/doctor/</link>
+      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://sdfyj.github.io/cn/2019/05/doctor/</guid>
+      <description>
+        &lt;p&gt;文章&lt;a href=&#34;https://mp.weixin.qq.com/s/XqJIwwFr96na-Ycc_tL9JA&#34;&gt;《酒后吃头孢有多恐怖？！医生凌锋生死24小时》&lt;/a&gt;来自公众号医学界，讲解了喝酒前或喝酒后吃头孢有多么严重的后果。&lt;/p&gt;
+
+        
+      </description>
+    </item>
     
     <item>
       <title>En First</title>
@@ -17,25 +833,113 @@
       <pubDate>Tue, 21 May 2019 18:01:57 +0800</pubDate>
       
       <guid>https://sdfyj.github.io/en/2019/05/en-first/</guid>
-      <description></description>
+      <description>
+        
+        
+        &lt;script&gt;location.href=&#39;https://sdfyj.github.io/en/2019/05/en-first/&#39;;&lt;/script&gt;
+        
+      </description>
     </item>
     
     <item>
-      <title>Cn First</title>
-      <link>https://sdfyj.github.io/cn/2019/05/cn-first/</link>
+      <title>学习python</title>
+      <link>https://sdfyj.github.io/cn/2019/05/python/</link>
       <pubDate>Tue, 21 May 2019 18:01:30 +0800</pubDate>
       
-      <guid>https://sdfyj.github.io/cn/2019/05/cn-first/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>First</title>
-      <link>https://sdfyj.github.io/post/first/</link>
-      <pubDate>Fri, 10 May 2019 14:49:44 +0800</pubDate>
-      
-      <guid>https://sdfyj.github.io/post/first/</guid>
-      <description> Hello World  good perfect  </description>
+      <guid>https://sdfyj.github.io/cn/2019/05/python/</guid>
+      <description>
+        
+
+&lt;h3 id=&#34;centos安装python3-6环境&#34;&gt;centos安装python3.6环境&lt;/h3&gt;
+
+&lt;p&gt;安装EPEL和IUS软件源&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;yum install epel-release -y 
+yum install https://centos7.iuscommunity.org/ius-release.rpm -y
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;安装Python3.6&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;yum install python36u -y
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;创建python3连接符&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ln -s /bin/python3.6 /bin/python3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;安装pip3&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;yum install python36u-pip -y
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;创建pip3链接符&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ln -s /bin/pip3.6 /bin/pip3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;centos后台运行python程序&#34;&gt;centos后台运行python程序&lt;/h3&gt;
+
+&lt;p&gt;在服务器上，为了退出终端，程序依然能够运行，需要设置程序在后台运行。&lt;/p&gt;
+
+&lt;p&gt;关键的命令：nohup&lt;/p&gt;
+
+&lt;p&gt;基本用法&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#进入要运行的py文件目录前
+nohup python  -u test.py &amp;gt; test.log 2&amp;gt;&amp;amp;1 &amp;amp;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;含义解释&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;nohup&lt;/code&gt;            不挂起的意思&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;python test.py&lt;/code&gt;   python运行test.py文件&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-u&lt;/code&gt;               代表程序不启用缓存，也就是把输出直接放到log中，没这个参数的话，log文件的生成会有延迟&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;gt; test.log&lt;/code&gt;       将输出日志保存到这个log中&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;2&amp;gt;1&lt;/code&gt;              2与&amp;gt;结合代表错误重定向，而1则代表错误重定向到一个文件1，而不代表标准输出 &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;2&amp;gt;&amp;amp;1&lt;/code&gt;             换成&lt;code&gt;2&amp;gt;&amp;amp;1&lt;/code&gt;，&amp;amp;与1结合就代表标准输出了，就变成错误重定向到标准输出&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;amp;&lt;/code&gt;                最后一个&lt;code&gt;&amp;amp;&lt;/code&gt;，代表该命令在后台执行&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;命令运行后会有提示，示例：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[1]   2880
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;代表进程2880中运行。&lt;/p&gt;
+
+&lt;p&gt;查看nohub命令下运行的所有后台进程：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;jobs
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;查看后台运行的所有进程：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ps -aux
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;查看后台运行的所有python进程：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ps aux |grep python
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;或者&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ps -ef | grep python
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;删除进程&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;kill -9  [进程id]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;-9的意思是强制删除&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://docs.jinkan.org/docs/flask/&#34;&gt;flask&lt;/a&gt;&lt;/p&gt;
+
+        
+      </description>
     </item>
     
     <item>
@@ -44,16 +948,45 @@
       <pubDate>Fri, 10 May 2019 14:48:20 +0800</pubDate>
       
       <guid>https://sdfyj.github.io/about/</guid>
-      <description></description>
+      <description>
+        
+        
+      </description>
     </item>
     
     <item>
-      <title>En About</title>
+      <title>About</title>
       <link>https://sdfyj.github.io/en/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://sdfyj.github.io/en/about/</guid>
-      <description>about me</description>
+      <description>
+        
+
+&lt;h1 id=&#34;me&#34;&gt;Me&lt;/h1&gt;
+
+&lt;p&gt;I am very happy to be able to live in this era, witnessing the rapid development of the motherland and the continuous
+improvement of the living standards of the people.
+Memories of my childhood life, the river, constantly flowing all the year around, was near by my home. In midsummer, I always played by the river, cuted off the water, catched small fish and played with tadpoles. For there were several willow trees by the river, we often climbed up and down barefoot, made crowns out of wicker, slingshots out of branches, and stuck cicada with flour. In the evening, listened to the sound of frogs, very lively. I&amp;rsquo;ve also played earth-pushing, mud-mixing, rubber band skipping, glass beads, snowman-making, playing house, hide-and-seek with my friends. Hoeing, fertilizing, loosening soil, picking corn, cutting wheat, peeling corn grains, planting sweet potatoes, planting trees, planting peanuts and other farm work has been done.
+In summer, when I finished farm work, my mouth parched and tongue scorched; when drinking water and eating a popsicle, brimming with happiness all over the face; when I went back home so hungry that the stomach was beginning to gurgle and ate a steamed bread steamed by my grandmother, my mouth was full of sweetness, which be still fresh in my memory. At that time, I didn&amp;rsquo;t know what PHS, pager, celluar phone and computer were. Just know if I can watch Calabash Brothers on a black-and-white TV, Soccer Boy, Slam Dunk, Journey to the West on a color TV, don&amp;rsquo;t mention how happy I was then.
+Later in the third grade of primary school, the school opened a computer course, with the first batch of computers which were DOS system. Before every class, we should wear shoes and wash our hands because we were worried that computers might be infected with viruses. The most we played was to see who typed fast and grabbed music games.
+In junior middle school, I began to contact with English, learned a little programming, and participated in computer drawing competitions.
+In high school, &amp;ldquo;intoxicated&amp;rdquo; in learning, did not care what was going on outside the window, and was envious to see my classmates playing with X86 desktop computers at home, carrying MP3 with them and using mobile phones. I was surprised to find that MP3 could even store files printed in print shops, which was subverting my perception.
+In college, I began to have my own mobile phones which buyed by my parents, began to contact the world through mobile phones, play the Xiaonei. But in less than a year, the mobile phone was stolen. I was so sad that tried to weep, but failed to shed a tear. From then on, I hated thieves.
+At the begining of my sophomore year, the college allowed we to take a computer. I started to use my eldest brother&amp;rsquo;s
+IBM notebook computer. I found that operation of the computer was so interesting and that it was so versatile.
+At that time, I felt great to install a system by myself, but it did not trigger more enlightenment.
+When I came to Beijing as a graduate student, felt the fast-paced life and met many excellent people. Thanks to the school environment, I began to learn R language and realized the charm of statistics and I had little talent and less learning.
+After work,I began to contact Python for financial data processing and learn Mysql, Oracle database and manage code through git.
+In 2016, I really owned my first laptop Macbook Pro and started new experience.
+In this process, I have gradually defined the direction I am interested in, be a person who knows a lot about
+computer programming, statistics and financial investment. Now that I have found the direction, the next step is to continue to conduct in-depth research and practice in the field of financial investment on the basis of statistical
+theory and computer tools.
+The reason for establishing this website is also to urge myself to study systematically, record bit by bit, have a
+sense of ceremony, at the same time, facilitate myself to inquire and share knowlege. Today is May 21, 2019.&lt;/p&gt;
+
+        
+      </description>
     </item>
     
     <item>
@@ -62,7 +995,15 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://sdfyj.github.io/cn/about/</guid>
-      <description>关于自己</description>
+      <description>
+        
+
+&lt;h1 id=&#34;我&#34;&gt;我&lt;/h1&gt;
+
+&lt;p&gt;我很开心能生活在这个时代，见证了祖国的快速发展，老百姓生活水平的不断提高。回忆小时候的生活，家旁边就是小河，常年流淌不断，盛夏在河边玩水，截水流儿，捉小鱼儿，戏蝌蚪儿；河边有几棵儿柳树，赤手裸腿爬上爬下，用柳条做过皇冠，用树枝做过弹弓，用面粘过知了；到了晚上，听取蛙声一片，好不热闹。也玩过堆土推、和泥、跳皮筋、玻璃珠、堆雪人、过家家、捉迷藏；锄草、施肥、松土、摘玉米、割麦子、剥玉米粒、种地瓜、种树、种花生等农活一样也没落下，在大夏天干完农活时的口干舌燥、喝口水吃个冰棍时的满脸幸福、饥肠辘辘回到家吃个奶奶刚蒸出的馒头时的满嘴甘甜还记忆犹新。当时还不知小灵通、传呼机、大哥大、计算机为何物，只知道如果能通过黑白电视机看个葫芦娃，彩色电视机看个足球小子、灌篮高手、西游记，就别提多高兴多开心了。后来小学三年级，学校开设了计算机课，有了第一批电脑，还是DOS系统，每次上课都要穿鞋套、洗手，怕计算机感染病毒，玩的最多的是看谁打字快，还有抢音乐游戏。初中开始接触英语，学过一点编程，参加过计算机绘图比赛，高中&amp;rdquo;陶醉&amp;rdquo;在学习中,两耳不闻窗外事，看到同学在家里玩x86台式电脑，随身携带mp3，开始用移动手机，真是羡慕不已，惊讶发现mp3居然还可以存储文件到打印店打印。。。简直颠覆自己的认知。上大学开始有了自己的手机，开始通过手机接触世界，玩转校内网，不过不到一年手机就被偷了，伤心欲绝、欲哭无泪，从此痛恨小偷。大二开始学院允许带电脑，开始使用我大哥的IBM笔记本电脑，发现电脑操作这么有趣，居然有这么多功能，能自己装个系统就觉得很厉害了，但却没有引发更多的启蒙。研究生来到北京，感受到北京的快节奏生活和认识了很多优秀的人，得益于学校的环境，开始接触R语言，认识到统计的魅力和自己的才疏学浅。工作后接触python进行金融数据处理，学习mysql、oracle数据库，通过git进行代码管理。2016年真正意义上拥有了自己人生第一款笔记本电脑Macbook Pro，开始了一种新的体验。在这过程中也逐渐明确了自己感兴趣的前进方向，做个懂点计算机编程、懂点统计知识、懂点金融投资的三懂，既然找到了方向，下一步就是不断深入研究，以统计理论为基础，以计算机为工具，在金融投资领域进行实践。建立本网站的的原因也是督促自己系统性学习，记录点点滴滴，有一个仪式感，同时方便自己查询和知识分享。今天是2019年05月21日，以记之。&lt;/p&gt;
+
+        
+      </description>
     </item>
     
   </channel>

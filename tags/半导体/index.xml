@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>半导体 on fyj</title>
+    <link>https://sdfyj.github.io/tags/%E5%8D%8A%E5%AF%BC%E4%BD%93/</link>
+    <description>Recent content in 半导体 on fyj</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 22 May 2019 10:37:27 +0800</lastBuildDate>
+    
+	<atom:link href="https://sdfyj.github.io/tags/%E5%8D%8A%E5%AF%BC%E4%BD%93/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>点沙成金：半导体芯片</title>
+      <link>https://sdfyj.github.io/cn/2019/05/semiconductor/</link>
+      <pubDate>Wed, 22 May 2019 10:37:27 +0800</pubDate>
+      
+      <guid>https://sdfyj.github.io/cn/2019/05/semiconductor/</guid>
+      <description>文章《点沙成金：半导体芯片》来自公众号老和山下的小学僧，讲解了芯片是如何制成的，中国与国外的差距。</description>
+    </item>
+    
+  </channel>
+</rss>

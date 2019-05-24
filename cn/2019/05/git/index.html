@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>学习git - fyj</title>
+    <meta property="og:title" content="学习git - fyj">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="git(github地址)
+镜像下载
+[&amp;hellip;] centos安装
+yum install git  安装完成后查看版本
+git --version  查看yum源仓库git信息
+yum info git  如果原有的git版本过低，移除默认安装的旧版git
+yum remove git  下载最新版
+cd /usr/src wget &amp;hellip;">
+      <meta property="og:description" content="git(github地址)
+镜像下载
+[&amp;hellip;] centos安装
+yum install git  安装完成后查看版本
+git --version  查看yum源仓库git信息
+yum info git  如果原有的git版本过低，移除默认安装的旧版git
+yum remove git  下载最新版
+cd /usr/src wget &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+<script async src="/js/load-typekit.js"></script>
+
+
+<link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="cn">
+    <header class="masthead">
+      
+
+<h1><a href="/"><img src="/images/logo.png" alt="" /></a></h1>
+
+
+
+      <nav class="menu">
+  <ul>
+  
+  
+  <li><a href="/">首页</a></li>
+  
+  <li><a href="/cn/about/">关于</a></li>
+  
+  <li><a href="/cn/">博客</a></li>
+  
+  <li><a href="/categories/">分类</a></li>
+  
+  <li><a href="/tags/">标签</a></li>
+  
+  <li><a href="/en/">English</a></li>
+  
+
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>学习git</h1>
+
+
+<h3>fyj / 
+2019-05-24</h3>
+
+<hr>
+
+
+      </header>
+
+
+
+
+
+<p><a href="https://github.com/git/git/releases">git(github地址)</a><br />
+<a href="https://mirrors.edge.kernel.org/pub/software/scm/git/">镜像下载</a></p>
+
+<h3 id="安装git">安装git</h3>
+
+<p>centos安装</p>
+
+<pre><code>yum install git
+</code></pre>
+
+<p>安装完成后查看版本</p>
+
+<pre><code>git --version
+</code></pre>
+
+<p>查看yum源仓库git信息</p>
+
+<pre><code>yum info git
+</code></pre>
+
+<p>如果原有的git版本过低，移除默认安装的旧版git</p>
+
+<pre><code>yum remove git 
+</code></pre>
+
+<p>下载最新版</p>
+
+<pre><code>cd /usr/src
+wget https://www.kernel.org/pub/software/scm/git/git-2.18.0.tar.gz
+</code></pre>
+
+<p>解压</p>
+
+<pre><code>tar xf git-2.18.0.tar.gz
+</code></pre>
+
+<p>配置编译安装</p>
+
+<pre><code>cd /usr/src
+ls
+cd git-2.18.0/
+make configure
+./configure --prefix=/usr/git ##配置目录
+make profix=/usr/git
+make isntall
+</code></pre>
+
+<p>加入环境变量</p>
+
+<pre><code>echo &quot;export PATH=$PATH:/usr/git/bin&quot; &gt;&gt; /etc/profile
+source /etc/profile
+</code></pre>
+
+<h3 id="设置全局变量">设置全局变量</h3>
+
+<pre><code>#全局变量用户名
+git config –global user.name “xxx” 
+#全局变量用户邮箱
+git config –global user.email “xxx@xxx.com” 
+</code></pre>
+
+<h3 id="生成ssh密钥">生成SSH密钥</h3>
+
+<pre><code>#生成密钥
+ssh-keygen -t rsa -C “your email address”
+</code></pre>
+
+<p>连续按3个回车（密码默认为空），得到<code>id_rsa</code>和<code>id_rsa.pub</code>文件，在<code>/root/.ssh</code>下说明生成成功</p>
+
+<h3 id="添加密钥到github">添加密钥到Github</h3>
+
+<p>打开 Github，登录自己的账号后，点击自己的头像-&gt;settings-&gt;SSH And GPG Keys-&gt;New SSH key
+将 <code>id_rsa.pub</code>中的内容（<code>$ cat ~/.ssh/id_rsa.pub #此命令可查看key内容</code>）粘贴到<code>Key</code>文本框中，随意输入一个title(不要有中文)，点击 <code>Add Key</code>即可</p>
+
+<h3 id="测试是否连接成功">测试是否连接成功</h3>
+
+<p>在命令行中输入</p>
+
+<pre><code>ssh git@github.com
+</code></pre>
+
+<p>会出现如下询问：</p>
+
+<pre><code>Are you sure you want to continue connecting (yes/no)?
+</code></pre>
+
+<p>键入yes后回车，如果出现</p>
+
+<pre><code>Hi xxx! You’ve successfully authenticated, but GitHub does not provide shell accessConnection to github.com closed.
+</code></pre>
+
+<p>则说明验证成功，否则可能是上述步骤中的其中几步出错了，需重新来过。</p>
+
+<h3 id="常用命令">常用命令</h3>
+
+<pre><code>#复制代码库到本地
+git clone &lt;address&gt; 
+#添加文件到代码库中
+git add &lt;file&gt; 
+#删除代码库的文件
+git rm &lt;file&gt;
+#提交更改，在修改了文件以后，使用这个命令提交修改
+git commit -m &lt;message&gt;
+#从远程同步代码库到本地
+git pull
+#推送代码到远程代码库
+git push
+#查看当前分支。带*是当前分支
+git branch
+#新建一个分支
+git branch &lt;branch-name&gt;
+#删除一个分支
+git branch -d &lt;branch-name&gt;
+#切换到指定分支
+git checkout &lt;branch-name&gt;
+#查看提交记录（即历史的 commit 记录）
+git log
+#当前修改的状态，是否修改了还没提交，或者那些文件未使用
+git status
+#恢复到历史版本
+git reset &lt;log&gt;
+</code></pre>
+
+<h3 id="git实例">git实例</h3>
+
+<p>远程仓库<code>README.git</code>为空，把本地代码上传到远程仓库</p>
+
+<pre><code>echo &quot;# Test&quot; &gt;&gt; README.md
+git init
+git add README.md
+git commit -m &quot;first commit&quot;
+git remote add origin git@github.com:******/README.git
+git push -u origin master
+</code></pre>
+
+<p>更新本地代码到远程仓库</p>
+
+<pre><code>git add README.md
+git commit -m &quot;first commit&quot;
+git push -u origin master
+</code></pre>
+
+<p>获取远程仓库中的代码到本地</p>
+
+<pre><code>git clone git@github.com:*****/README.git
+</code></pre>
+
+<p>从远程仓库同步代码更新本地代码</p>
+
+<pre><code>git pull origin master
+</code></pre>
+
+<h3 id="如何设置两个git账户-gitlab-github">如何设置两个git账户，gitlab+github</h3>
+
+<p>比如gitlab用多可以将gitlab配置为global全局变量，github配置为local变量</p>
+
+<p>global：全局配置（用户名和邮箱）</p>
+
+<p>local：当前项目的配置（用户名和邮箱），如果你没有配置，提交代码时候个人信息是global配置的信息。需要注意的是配置local的时候，需要cd指令打开具体项目文件夹，再去配置local</p>
+
+<pre><code>//查看全局配置(global)
+git config --global --list
+</code></pre>
+
+<pre><code>//查看当前项目的配置（local）
+git config --local --list
+</code></pre>
+
+<p>通过https方式，不需要生成SSH秘钥，提交时在提示框内输入用户名和密码即可，SSH方式必须有SSH秘钥。</p>
+
+<p>首先分别生成gitlab和github网站的密钥文件，一共两对四个，公钥和私钥。</p>
+
+<ul>
+<li>-t 密钥类型，默认是 rsa加密</li>
+<li>-C 注释文字，比如用户邮箱</li>
+
+<li><p>-f 密钥文件位置及文件名</p>
+
+<pre><code>//gitlab密钥
+$ ssh-keygen -t rsa -C &quot;xxx@gmail&quot;
+//github密钥
+$ ssh-keygen -t rsa -C &quot;xxx@qq.com&quot; -f ~/.ssh/github_id-rsa
+</code></pre></li>
+</ul>
+
+<p>将生成的公钥（.pub文件）粘贴到github/gitlab的SSH地址里面</p>
+
+<p>配置文件config，其中gitlab地址，一般都是自己公司目所在的ip地址或者公司git网址，如果没有config，则生成一个</p>
+
+<pre><code>//生成config 
+ssh touch ~/.ssh/config
+</code></pre>
+
+<p>用<code>vim config</code>打开，编辑</p>
+
+<pre><code>#github
+Host github.com
+HostName github.com
+User git
+IdentityFile ~/.ssh/github_id-rsa
+
+#gitlab
+Host git.v87.us
+HostName git.v87.us
+User git
+IdentityFile ~/.ssh/id_rsa
+</code></pre>
+
+<p>按esc退出，:wq保存</p>
+
+<p>测试时，不是<code>git -T git@具体地址</code>，而是<code>git -T git@Host的值</code> ，也就是config里面具体的Host，因为有配置文件config，最后会指向具体的密钥。</p>
+
+<p>修改已经设置过的global配置</p>
+
+<pre><code>git config --global --replace-all user.email &quot;输入你的邮箱&quot; 
+git config --global --replace-all user.name &quot;输入你的用户名&quot;
+</code></pre>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/cn/2019/05/markdown/">学习markdown</a></span>
+  <span class="nav-next"><a href="/cn/2019/05/centos/">学习centos</a> &rarr;</span>
+</nav>
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = '\/cn\/2019\/05\/markdown\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = '\/cn\/2019\/05\/centos\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+
+
+
+<script async src="/js/fix-toc.js"></script>
+
+<script async src="/js/center-img.js"></script>
+
+<script async src="/js/right-quote.js"></script>
+
+<script async src="/js/no-highlight.js"></script>
+
+<script async src="/js/fix-footnote.js"></script>
+
+<script async src="/js/math-code.js"></script>
+
+<script async src="/js/external-link.js"></script>
+
+<script async src="/js/alt-title.js"></script>
+
+<script async src="/js/header-link.js"></script>
+
+
+
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">&copy; <a href="/">fyj</a> 2019-</div>
+  
+  </footer>
+  </article>
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-1988641-2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>
+

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hugo on fyj</title>
+    <link>https://sdfyj.github.io/tags/hugo/</link>
+    <description>Recent content in hugo on fyj</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 23 May 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://sdfyj.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>学习hugo</title>
+      <link>https://sdfyj.github.io/cn/2019/05/hugo/</link>
+      <pubDate>Thu, 23 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://sdfyj.github.io/cn/2019/05/hugo/</guid>
+      <description>hugo的官方学习网站 中文官网 英文官网 安装 mac下直接使用Homebrew安装 brew install hugo 生成站点 使用Hugo快速生成站点，比如希望生成到 /path/to/site 路径：</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>学习centos - fyj</title>
+    <meta property="og:title" content="学习centos - fyj">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="第一步：查看当前系统的环境变量有哪些
+echo $PATH  第二步：找到当前系统中以bin、sbin结尾的目录
+find / -type d -name *bin  第三步：编辑/etc/profile文件，查看第二步中找到的你所需要的目录
+#vim编辑系统环境变量文件 vim /etc/profile #vim打开该文件后按Shift&#43;g键跳转至该文件的最后一行，按i键进入插入编辑模式 #输入 &amp;hellip;">
+      <meta property="og:description" content="第一步：查看当前系统的环境变量有哪些
+echo $PATH  第二步：找到当前系统中以bin、sbin结尾的目录
+find / -type d -name *bin  第三步：编辑/etc/profile文件，查看第二步中找到的你所需要的目录
+#vim编辑系统环境变量文件 vim /etc/profile #vim打开该文件后按Shift&#43;g键跳转至该文件的最后一行，按i键进入插入编辑模式 #输入 &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+<script async src="/js/load-typekit.js"></script>
+
+
+<link rel="stylesheet" href="/css/custom.css" />
+
+  </head>
+
+  
+  <body class="cn">
+    <header class="masthead">
+      
+
+<h1><a href="/"><img src="/images/logo.png" alt="" /></a></h1>
+
+
+
+      <nav class="menu">
+  <ul>
+  
+  
+  <li><a href="/">首页</a></li>
+  
+  <li><a href="/cn/about/">关于</a></li>
+  
+  <li><a href="/cn/">博客</a></li>
+  
+  <li><a href="/categories/">分类</a></li>
+  
+  <li><a href="/tags/">标签</a></li>
+  
+  <li><a href="/en/">English</a></li>
+  
+
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>学习centos</h1>
+
+
+<h3>fyj / 
+2019-05-24</h3>
+
+<hr>
+
+
+      </header>
+
+
+
+
+
+<h3 id="添加系统环境变量">添加系统环境变量</h3>
+
+<p>第一步：查看当前系统的环境变量有哪些</p>
+
+<pre><code>echo $PATH
+</code></pre>
+
+<p>第二步：找到当前系统中以bin、sbin结尾的目录</p>
+
+<pre><code>find / -type d -name *bin
+</code></pre>
+
+<p>第三步：编辑/etc/profile文件，查看第二步中找到的你所需要的目录</p>
+
+<pre><code>#vim编辑系统环境变量文件
+vim /etc/profile
+#vim打开该文件后按Shift+g键跳转至该文件的最后一行，按i键进入插入编辑模式
+#输入所缺失的bin目录，多个目录以:分割即可
+export PATH=/usr/local/mysql/bin:/usr/local/php/bin:$PATH
+</code></pre>
+
+<p>第四步：启用刚刚添加的新环境变量</p>
+
+<pre><code>source /etc/profile
+</code></pre>
+
+<p>env命令显示所有的环境变量</p>
+
+<pre><code>env
+</code></pre>
+
+<h3 id="设置变量的三种方法">设置变量的三种方法</h3>
+
+<p>1 在/etc/profile文件中添加变量【对所有用户生效(永久的)】</p>
+
+<p>用VI在文件/etc/profile文件中增加变量，该变量将会对Linux下所有用户有效，并且是“永久的”。</p>
+
+<p>例如：编辑/etc/profile文件，添加CLASSPATH变量</p>
+
+<pre><code>vi /etc/profile 
+export CLASSPATH=./JAVA_HOME/lib;$JAVA_HOME/jre/lib 
+</code></pre>
+
+<p>注：修改文件后要想马上生效还要运行<code>source /etc/profile</code>不然只能在下次重进此用户时生效。</p>
+
+<p>2 在用户目录下的.bash_profile文件中增加变量【对单一用户生效(永久的)】</p>
+
+<p>用VI在用户目录下的.bash_profile文件中增加变量，改变量仅会对当前用户有效，并且是“永久的”。</p>
+
+<p>例如：编辑guok用户目录(/home/guok)下的.bash_profile</p>
+
+<pre><code>vi /home/guok/.bash.profile 
+</code></pre>
+
+<p>添加如下内容：</p>
+
+<pre><code>export CLASSPATH=./JAVA_HOME/lib;$JAVA_HOME/jre/lib 
+</code></pre>
+
+<p>注：修改文件后要想马上生效还要运行<code>source /home/guok/.bash_profile</code>不然只能在下次重进此用户时生效。</p>
+
+<p>3 直接运行export命令定义变量【只对当前shell(BASH)有效(临时的)】</p>
+
+<p>在shell的命令行下直接使用[export 变量名=变量值] 定义变量，该变量只在当前的shell(BASH)或其子shell(BASH)下是有效的，shell关闭了，变量也就失效了，再打开新shell时就没有这个变量，需要使用的话还需要重新定义。</p>
+
+
+  <footer>
+  
+<nav class="post-nav">
+  <span class="nav-prev">&larr; <a href="/cn/2019/05/git/">学习git</a></span>
+  <span class="nav-next"><a href="/cn/2019/05/apache/">学习apache</a> &rarr;</span>
+</nav>
+<script type="text/javascript">
+document.addEventListener('keyup', function(e) {
+  if (e.target.nodeName.toUpperCase() != 'BODY') return;
+  var url = false;
+  if (e.which == 37) {  
+    
+    url = '\/cn\/2019\/05\/git\/';
+    
+  } else if (e.which == 39) {  
+    
+    url = '\/cn\/2019\/05\/apache\/';
+    
+  }
+  if (url) window.location = url;
+});
+</script>
+
+
+
+
+
+
+<script async src="/js/fix-toc.js"></script>
+
+<script async src="/js/center-img.js"></script>
+
+<script async src="/js/right-quote.js"></script>
+
+<script async src="/js/no-highlight.js"></script>
+
+<script async src="/js/fix-footnote.js"></script>
+
+<script async src="/js/math-code.js"></script>
+
+<script async src="/js/external-link.js"></script>
+
+<script async src="/js/alt-title.js"></script>
+
+<script async src="/js/header-link.js"></script>
+
+
+
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">&copy; <a href="/">fyj</a> 2019-</div>
+  
+  </footer>
+  </article>
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-1988641-2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  </body>
+</html>
+

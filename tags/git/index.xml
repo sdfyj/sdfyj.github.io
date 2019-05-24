@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>git on fyj</title>
+    <link>https://sdfyj.github.io/tags/git/</link>
+    <description>Recent content in git on fyj</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 24 May 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://sdfyj.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>学习git</title>
+      <link>https://sdfyj.github.io/cn/2019/05/git/</link>
+      <pubDate>Fri, 24 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://sdfyj.github.io/cn/2019/05/git/</guid>
+      <description>git(github地址) 镜像下载 安装git centos安装 yum install git 安装完成后查看版本 git --version 查看yum源仓库git信息 yum info git 如果原有的git版本</description>
+    </item>
+    
+  </channel>
+</rss>
